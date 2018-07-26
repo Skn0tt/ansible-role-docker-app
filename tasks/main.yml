@@ -1,0 +1,5 @@
+---
+# tasks file for docker-app
+- name: Pull *.dockerapp Image
+  docker:
+    image: {{ image }}
