@@ -1,4 +1,4 @@
-# Ansible Role: docker-app
+# Ansible Role: docker_app
 
 A role for orchestrating Docker using [docker-app](https://github.com/docker/app).
 
@@ -25,7 +25,7 @@ None.
 ```yaml
 - hosts: servers
   roles:
-  - role: skn0tt.docker-app
+  - role: skn0tt.docker_app
     image: skn0tt/ente.dockerapp
     config:
       REDIS_VERSION: 2.12.2
