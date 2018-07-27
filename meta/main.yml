@@ -1,5 +1,6 @@
 galaxy_info:
   author: skn0tt
+  role_name: docker-app
   description: A role for orchestrating Docker using docker-app.
 
   # If the issue tracker for your role is not on github, uncomment the
