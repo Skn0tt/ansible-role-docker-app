@@ -11,6 +11,7 @@ The `docker-app` executable needs to be in PATH.
 | Var   | Meaning                                 |
 | ----- | --------------------------------------- |
 | image | `.dockerapp`-Image that should be used. |
+| config | dictionary with config for docker-app |
 
 ## Dependencies
 

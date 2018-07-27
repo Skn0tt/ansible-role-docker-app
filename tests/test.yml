@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
-  remote_user: root
+  vars:
+    image: skn0tt/ente.dockerapp:0.2.1
+    config: {}
   roles:
-    - docker-app
+    - ../..
