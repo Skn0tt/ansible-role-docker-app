@@ -20,4 +20,6 @@ then
   $CMD = "stop"
 fi
 
-docker-app render $IMAGE $SET | docker-compose -f - $CMD
+COMPOSE_FILE=$(docker-app render $IMAGE $SET)
+echo $COMPOSE_FILE | docker-compose -f - pull
+echo $COMPOSE_FILE | docker-compose -f - $CMD
