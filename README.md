@@ -15,6 +15,7 @@ On Remote Hosts:
 | ------ | --------------------------------------- |
 | image  | `.dockerapp`-Image that should be used. |
 | config | dictionary with config for docker-app   |
+| state  | state to achieve: up | down | start | stop |
 
 ## Dependencies
 
@@ -26,6 +27,7 @@ None.
 - hosts: servers
   roles:
   - role: skn0tt.docker_app
+    state: up
     image: skn0tt/ente.dockerapp
     config:
       REDIS_VERSION: 2.12.2
