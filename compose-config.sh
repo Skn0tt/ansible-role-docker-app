@@ -8,16 +8,16 @@ SET=$@
 
 if [ $CMD = "up" ]
 then
-  $CMD = "up -d"
+  $CMD="up -d"
 elif [ $CMD = "down" ]
 then
-  $CMD = "down"
+  $CMD="down"
 elif [ $CMD = "start" ]
 then
-  $CMD = "start"
+  $CMD="start"
 elif [ $CMD = "stop" ]
 then
-  $CMD = "stop"
+  $CMD="stop"
 fi
 
 COMPOSE_FILE=$(docker-app render $IMAGE $SET)
