@@ -7,6 +7,7 @@
 # Pull Image
 - name: Pull *.dockerapp Image
   docker_image:
+    force: yes
     name: "{{ image }}"
 
 # generate container name
@@ -23,7 +24,6 @@
     command: "{{ state }} {{ image }} {% for key, value in config.iteritems() %} --set {{ key}}={{value}} {% endfor %}"
 
 - name: Remove Container
-  when: false
   docker_container:
     name: "{{ container_name }}"
     state: absent
