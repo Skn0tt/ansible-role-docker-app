@@ -23,6 +23,9 @@
     image: skn0tt/ansible-role-docker-app
     command: "{{ state }} {{ image }} {% for key, value in config.iteritems() %} --set {{ key}}={{value}} {% endfor %}"
 
+- name: Wait for container to stop
+  command: "docker wait {{ container_name }}"
+
 - name: Remove Container
   docker_container:
     name: "{{ container_name }}"
