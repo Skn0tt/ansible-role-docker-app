@@ -21,7 +21,7 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     image: skn0tt/ansible-role-docker-app
-    command: "{{ state }} {{ image }} {% for key, value in config.iteritems() %} --set {{ key}}={{value}} {% endfor %}"
+    command: "{{ state }} {{ image }} {% for key, value in config.items() %} --set {{ key }}={{value}} {% endfor %}"
 
 - name: Wait for container to stop
   command: "docker wait {{ container_name }}"
