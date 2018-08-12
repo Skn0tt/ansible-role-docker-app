@@ -77,3 +77,8 @@ Author Information
 
 Simon Knott [info@simonknott.de](mailto:info@simonknott.de)
 [simonknott.de](https://simonknott.de)
+
+Contributors :tada:
+------------
+
+Jack Henahan [@jhenahan](https://github.com/jhenahan)
