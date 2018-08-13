@@ -11,7 +11,7 @@
 
 - name: "[app] | Build dockerapp containers"
   docker_container:
-    name: "docker-app-{{ inventory_hostname | replace('.', '-') }}-{{ image.name | replace('/', '-') }}-{{ image_idx }}"
+    name: "docker-app-{{ inventory_hostname | replace('.', '-') }}-{{ image.name | replace('/', '-') | replace('.', '-') }}-{{ image_idx }}"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     image: "skn0tt/ansible-role-docker-app"
