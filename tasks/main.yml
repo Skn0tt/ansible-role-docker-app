@@ -15,6 +15,10 @@
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     image: "skn0tt/ansible-role-docker-app"
+    pull: true
+    detach: false
+    cleanup: true
+    output_logs: true
     command: >
         {{ image.state | default('up') }} {{ image.name }}
         {% if image.config is defined %}
@@ -27,21 +31,3 @@
   loop_control:
     loop_var: image
     index_var: image_idx
-
-- name: "Container machinery"
-  when: "dockerapp_containers | default([]) | length > 0"
-  block:
-    - name: "[machinery] | Construct list of container names"
-      set_fact:
-        all_dockerapp_containers: "{{ dockerapp_containers.results | map(attribute='invocation') | map(attribute='module_args') | list }}"
-
-    - name: "[cleanup] | Wait for all containers to stop"
-      command: "docker wait {{ all_dockerapp_containers | join(' ', attribute='name') }}"
-      async: 600
-      poll: 10
-
-    - name: "[cleanup] | Remove dockerapp containers"
-      docker_container:
-        name: "{{ item }}"
-        state: absent
-      loop: "{{ all_dockerapp_containers | map(attribute='name') | list }}"
