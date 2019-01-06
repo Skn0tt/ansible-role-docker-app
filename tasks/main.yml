@@ -3,12 +3,6 @@
   pip:
     name: docker
 
-- name: "[images] | Pull *.dockerapp images"
-  docker_image:
-    force: yes
-    name: "{{ item }}"
-  loop: "{{ dockerapp_images | map(attribute='name') | list | unique }}"
-
 - name: "[app] | Build dockerapp containers"
   docker_container:
     name: "docker-app-{{ inventory_hostname | replace('.', '-') }}-{{ image.name | replace('/', '-') | replace('.', '-') | replace(':', '-') }}-{{ image_idx }}"
