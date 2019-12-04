@@ -8,7 +8,7 @@
     name: "docker-app-{{ inventory_hostname | replace('.', '-') }}-{{ image.name | replace('/', '-') | replace('.', '-') | replace(':', '-') }}-{{ image_idx }}"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    image: "skn0tt/ansible-role-docker-app"
+    image: "skn0tt/ansible-role-docker-app:v0.5.0"
     pull: true
     detach: false
     cleanup: true
